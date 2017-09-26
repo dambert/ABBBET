@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="css/ip.grid.css" rel="stylesheet" />
 
     <script>
@@ -11,14 +12,22 @@
             $('#demo').ip_Grid({ rows: 10000,  cols: 10 });
 
             $('#demo').ip_CellInput({ valueRAW:'Student Outcome', row: 0, col: 0 })
+            
+            //Rellenar los datos en duro
+            $('#demo').ip_CellInput({ valueRAW:"(A): APLICA CONOCIMIENTOS DE MATEMÁTICAS, CIENCIAS, COMPUTACIÓN E INGENIERÍA", row: 1, col: 0 })   
+            $('#demo').ip_CellInput({ valueRAW:"(B): DISEÑA Y CONDUCE EXPERIMENTOS EN BASE AL ANÁLISIS E INTERPRETACIÓN DE DATOS.", row: 2, col: 0 })   
+            $('#demo').ip_CellInput({ valueRAW:"(C): DISEÑA SISTEMAS, COMPONENTES O PROCESOS PARA ENCONTRAR SOLUCIONES EN LA ATENCIÓN DE NECESIDADES TENIENDO EN CUENTA RESTRICCIONES ECONÓMICAS, SOCIALES, POLÍTICAS, ÉTICAS, DE SALUD Y SEGURIDAD Y OTRAS PROPIAS DEL ENTORNO EMPRESARIAL.", row: 3, col: 0 })  
+            $('#demo').ip_CellInput({ valueRAW:"(D): PARTICIPA EN EQUIPOS MULTIDISCIPLINARIOS DESARROLLANDO SUS TAREAS CON PROFESIONALES DE DIFERENTES ESPECIALIDADES O DOMINIOS DE APLICACIÓN.", row: 4, col: 0 })  
+            $('#demo').ip_CellInput({ valueRAW:"(E): IDENTIFICA, FORMULA Y RESUELVE PROBLEMAS DE INGENIERÍA.", row: 5, col: 0 })  
+            $('#demo').ip_CellInput({ valueRAW:"(F): PROPONE SOLUCIONES EN INGENIERÍA DE SOFTWARE CON RESPONSABILIDAD PROFESIONAL Y ÉTICA", row: 6, col: 0 })  
+            $('#demo').ip_CellInput({ valueRAW:"(H): IDENTIFICA EL IMPACTO DE LAS SOLUCIONES de software en el contexto global, económico y del entorno en la sociedad", row: 7, col: 0 })  
+            $('#demo').ip_CellInput({ valueRAW:"(I): RECONOCE LA NECESIDAD DE MANTENER SUS CONOCIMIENTOS ACTUALIZADOS.", row: 8, col: 0 })  
+            $('#demo').ip_CellInput({ valueRAW:" (J): ANALIZA HECHOS DEL MUNDO CONTEMPORÁNEO IDENTIFICANDO EL IMPACTO EN EL DESEMPEÑO PROFESIONAL DE INGENIERÍA.", row: 9, col: 0 })  
 
-            //Poner los outcomes
-            for(var i=0;i<7;i++){
-                var nombreOutcome = String(i);
-                var nombre = "Nombre A";
-                var stringConcat = nombre.concat(nombreOutcome);
-                $('#demo').ip_CellInput({ valueRAW:stringConcat, row: i+1, col: 0 })                
-            }
+
+
+
+            //Header textos 
             $('#demo').ip_CellInput({ valueRAW:'Criterios', row: 0, col: 1 })
             $('#demo').ip_CellInput({ valueRAW:'Nota Máxima', row: 0, col: 2 })
             $('#demo').ip_CellInput({ valueRAW:'Nivel Aceptación', row: 0, col: 3 })
@@ -31,9 +40,11 @@
             $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 5, col: 1 })
             $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 6, col: 1 })
             $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 7, col: 1 })
+            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 8, col: 1 })
+            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 9, col: 1 })
 
-            $('#demo').ip_FormatCell({ style:'font-weight:bold;',range:[{ startRow:0, startCol:0, endRow:0, endCol:5 }] })
-            $('#demo').ip_FormatCell({ style:'font-weight:bold;',range:[{ startRow:0, startCol:0, endRow:7, endCol:0 }] })
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:#f52424; color:white;',range:[{ startRow:0, startCol:0, endRow:0, endCol:5 }] })
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:#5d505b; color:white;',range:[{ startRow:1, startCol:0, endRow:9, endCol:0 }] })
 
             $('#demo').ip_Border({ borderSize:'1', borderPlacement:'all', range:[{ startRow:0, startCol:0, endRow:0, endCol:5 }] })
             $('#demo').ip_Border({ borderSize:'1', borderPlacement:'all', range:[{ startRow:0, startCol:0, endRow:7, endCol:0 }] })
@@ -57,6 +68,9 @@
 
             //Variable para considerar un row más cuando agregas un nuevo NIvel o Criterio
             var NewRow = false;
+            
+            var NewRowCriterio = -1;
+            var NewRowNivel = -1; 
 
 
 
@@ -64,7 +78,7 @@
             var dataAltura=[];
 
             function initOutcome(){
-                 for(var i=0;i<=6;i++){
+                 for(var i=0;i<9;i++){
                       data[i]=[];
                  }
             }
@@ -161,7 +175,7 @@
                         // console.log('altura:' + altura);
                         if(row<=altura)
                         {
-                            return j;
+                            return row;
                         }
                     }
                     //Recorremos los criterios
@@ -188,6 +202,68 @@
 
                 return -1;
             }
+
+
+            // Funcion para obtener la altura por un outcome seleccionado: Usado para agregar un criterio al outcome
+            function getAlturaByOutcome(outcomeIndex){
+
+                    var altura= 0 ;
+                    if(outcomeIndex==-1) return -1;
+                
+                    //log("****************Outcome " + i + ":");
+                    var cantCriterios = data[outcomeIndex].length;
+                    //log("Cantidad Criterios: " + cantCriterios);
+                    if(cantCriterios==0) { 
+                        return altura + 1;
+                    }
+                    //Recorremos los criterios
+                    for(var j=0;j< cantCriterios; j++){
+
+                        var cantNiveles = data[outcomeIndex][j].niveles.length;
+
+                        if(cantNiveles==0)
+                            altura = altura + 1;
+                        else
+                        {
+
+                            if(NewRow==true) cantNiveles= cantNiveles + 1;
+
+                            altura = altura + cantNiveles;
+                        }
+                    }
+
+                    return altura;
+            }
+            function getAlturaByCriterio(outcomeIndex, outcomeCriterio){
+
+                    var altura= 0 ;
+                    if(outcomeIndex==-1) return -1;
+                
+                    //log("****************Outcome " + i + ":");
+                    var cantCriterios = data[outcomeIndex].length;
+                    //log("Cantidad Criterios: " + cantCriterios);
+                    if(cantCriterios==0) { 
+                        return altura + 1;
+                    }
+                    //Recorremos los criterios
+                    for(var j=0;j< cantCriterios; j++){
+
+                        var cantNiveles = data[outcomeIndex][j].niveles.length;
+
+                        if(cantNiveles==0)
+                            altura = altura + 1;
+                        else
+                        {
+
+                            if(NewRow==true) cantNiveles= cantNiveles + 1;
+                            altura = altura + cantNiveles;
+                        }
+                        if(cantCriterios==outcomeCriterio)
+                            break;
+                    }
+
+                    return altura;
+            }
             //Validar para agregar el texto (Agregar C(+))
             function verificarRowAnteriorCriterio(row,column){
 
@@ -210,9 +286,21 @@
                    if(enRangoRow){
 
 
-                    var valorStudentOutcome = getValueInCell(row,ColOutcome);
+                    var valorNombreOutcome = getValueInCell(row,column-1);
+                    var valorNotaMaxima = getValueInCell(row,column+1);
 
-                    setValueInCell(row,column, "Agregar C(+)");
+                    if(valorNombreOutcome != "" && valorNotaMaxima =="")
+                    {
+                        setValueInCell(row,column, "Agregar C(+)");
+                        return;
+                    }
+
+                    if(row == NewRowCriterio)
+                    { 
+                        setValueInCell(row,column, "Agregar C(+)");
+                        return;
+                    }
+
                     /*
                         //Si la columna a la izquierda está vacia , entonces elimino la fila
                      if(getValueInCell(row,column-1)=="")
@@ -283,14 +371,16 @@
                    var NombreNivel = getValueInCell(row,ColNivelAceptacion);
                    var PuntajeMenor = getValueInCell(row,ColPuntajeMenor);
                    var PuntajeMayor = getValueInCell(row , ColPuntajeMayor);
-
+                   $('#demo').ip_FormatCell({ style:'background-color:#ebf5c8;',range:[{ startRow:row, startCol:ColNivelAceptacion, endRow:row, endCol:ColPuntajeMayor }] })
+                   $('#demo').ip_Border({ borderSize:'1', borderPlacement:'all', range:[{ startRow:row, startCol:ColNivelAceptacion, endRow:row, endCol:ColPuntajeMayor }] })
                    var indexCriterio = onFocusCriterio(row);
-                   console.log('indexCriterio:' + indexCriterio);
+                   //console.log('indexCriterio:' + indexCriterio);
                    var nivel = NivelAceptacion(NombreNivel, PuntajeMenor, PuntajeMayor);
                    PushNivelEnCriterio(outcomeIndex,indexCriterio, nivel);
                    console.log(data);
 
                    NewRow = false;
+                   NewRowNivel = -1;
             }
 
             function AddCriterioAlFinalizar(row){
@@ -299,11 +389,14 @@
                    if(outcomeIndex == -1) return;
                    var NombreCriterio = getValueInCell(row,ColCriterio);
                    var NotaMaxima = getValueInCell(row,ColNotaMaxima);
+                    $('#demo').ip_FormatCell({ style:'background-color:whitesmoke;',range:[{ startRow:row, startCol:ColCriterio, endRow:row, endCol:ColNotaMaxima }] })
+                    $('#demo').ip_Border({ borderSize:'1', borderPlacement:'all', range:[{ startRow:row, startCol:ColCriterio, endRow:row, endCol:ColNotaMaxima }] })
                    PushCriterio(outcomeIndex, Criterio(NombreCriterio,NotaMaxima,[]));
                    log('Imprimiendo array data abet');
                    log(data);
 
                    NewRow= false;
+                   NewRowCriterio = -1;
             }
 
             var ultimoOutcome = ""
@@ -488,7 +581,9 @@
                     // (+) 107
                     // (-) 109
 
-                    if(event.which === 107 && event.ctrlKey){
+                   // if(event.which === 107 && event.ctrlKey){
+
+                    if(event.ctrlKey){
 
                         var row = getRow();
                         var column = getColumn();
@@ -505,22 +600,46 @@
                         switch(typeSection){
                             case SectionCriterio:{
 
-                                    var rowPosicionNuevo =  row+1;
+                                    var indexOutcome = onFocusOutcome(row);
+                                    //Aqui debo validar todos los criterios y outcome del index
                                     if(validCriterioWithMessages(row,column)){
+                                        
+                                        var alturaNuevaPosicion = getAlturaByOutcome(indexOutcome);
+                                        var rowPosicionNuevo = alturaNuevaPosicion + 1;
+
                                         $('#demo').ip_InsertRow({ row:rowPosicionNuevo, appendTo: 'before', count: 1 })
                                         setValueInCellByJquery(rowPosicionNuevo,ColCriterio,"Agregar C(+)");
                                         selectCell(rowPosicionNuevo,column);
                                         NewRow = true;
+                                        NewRowCriterio = rowPosicionNuevo;
+
+                                        if(rowPosicionNuevo<=NewRowNivel)
+                                            NewRowNivel = NewRowNivel + 1 
+
                                     }
 
                             }break;
                             case SectionNivel:{
-                                    var rowPosicionNuevo =  row+1;
+                                    var criterioIndex = onFocusCriterio(row);
+                                    var outcomeIndex = onFocusOutcome(row);
+
+                                    var alturaNuevoNivel = getAlturaByCriterio(outcomeIndex,criterioIndex);
+                                    log('criterioindex:' + criterioIndex);
+                                    log('alturaNuevoNivel:' + alturaNuevoNivel);
+                                    var rowPosicionNuevo =  alturaNuevoNivel+1;
+
+
+                                    //Aqui debo validar que todos los niveles del criterio y outcome son validos
                                     if(validNivelAceptacionWithMessages(row,column)){
                                         $('#demo').ip_InsertRow({ row:rowPosicionNuevo, appendTo: 'before', count: 1 })
                                         setValueInCellByJquery(rowPosicionNuevo,ColNivelAceptacion,"Agregar N(+)");
                                         selectCell(rowPosicionNuevo,ColNivelAceptacion);
                                         NewRow = true;
+                                        NewRowNivel = rowPosicionNuevo;
+
+                                        if(NewRowCriterio <= rowPosicionNuevo)
+                                            NewRowCriterio = NewRowCriterio + 1 
+
 
                                     }
 
@@ -699,7 +818,7 @@
         body {
             font-family: Arial;
             color: white;
-            background-color: #3d3d3d;
+            background-color: black;
             margin: 0;
             padding: 60px;
             position:relative;
@@ -725,13 +844,27 @@
 
 </head>
 <body>
+    <style>
+        .gridContainer{
+            margin:0 auto;
+        }
+        body{
+            text-align: center;
 
-    <h1>AbetDesarrollo</h1>
+        }
+        .titulo_creacion{
+            color:#e44c3c;
+        }
+</style>
+<div class="container">
+ <h1 class="titulo_creacion"><img src="img/agregar.png" class="img-responsive" alt="icono agregar" width="40"> CONFIGURACIÓN DE RÚBRICA</h1>
     <p></p>
     <div class="gridContainer">
         <div id="demo"></div>
     </div>
-    <p>For more usage examples and documentation please <a href="http://www.inspireproduction.co.za/#/demo-ui/jquery-spreadsheet">click here</a>.</p>
+</div>
+   
+    
 </body>
 
     <script src="scripts/jquery-ui-1.9.2.custom.min.js"></script>    
