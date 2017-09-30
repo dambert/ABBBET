@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title Page</title>
+
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" >
+		<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <!--<link rel="stylesheet" type="text/css" href="css/demo.css" />-->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
+        <link rel="stylesheet" type="text/css" href="css/cs-skin-elastic.css" />
+        <link href="css/styleButton.css" rel="stylesheet" />
+        
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+        <style>
+            .titulo_creacion{
+                color:#e44c3c;
+            }
+            body{
+                background: #efede3 url("https://upc.blackboard.com/branding/themes/NUEVOUPC/images/bblearn_2011_bg.png") repeat 0 -19px;
+            }
+        </style>
+	</head>
+	<body>
+        
+        <div class="container">
+            <div class="panel panel-default">
+                  <div class="panel-heading">
+                        
+                        
+                        <h1 class="titulo_creacion"><img src="img/agregar.png" class="img-responsive" alt="icono agregar" width="40"> CONFIGURACIÓN DE RÚBRICA</h1>
+                        <h5 class="panel-title">En esta sección se permite selecionar la carrera, el curso y la evaluación para la cual se creará la rúbrica.</h5>
+                        <br/>
+                  </div>
+                  <div class="panel-body">
+                      
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 row">
+                          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <select class="cs-select cs-skin-elastic">
+                                <option value="" disabled selected>Seleccione una Carrera</option>
+                                <option value="france" data-class="icon-software">Ingeniería de Software</option>
+                                <option value="brazil" data-class="icon-sistemas">Ingeniería de Sistemas</option>
+                                <option value="argentina" data-class="icon-ciencias">Ciencias de la Comp.</option>
+                            </select>
+                          </div>
+                          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <select class="cs-select cs-skin-elastic">
+                                <option value="" disabled selected>Seleccione un Curso</option>
+                                <option value="france" data-class="icon-curso">Taller de Proyecto I</option>
+                                <option value="brazil" data-class="icon-curso">Taller de Proyecto II</option>
+                            </select>
+                              
+                          </div>
+                      </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            
+                            <a id="submitButton" href="#" class="progress-button red">!DESEO CONTINUAR!</a>
+
+                            <!--
+                          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                              
+                            <a id="actionButton" href="#" class="progress-button green" data-loading="Working.." data-finished="Finished!" data-type="background-bar">Action!</a>
+
+                            <a id="generateButton" href="#" class="progress-button red" data-loading="Generating.." data-finished="Download" data-type="background-vertical">Generate</a>
+
+                            <h1>Progress Control</h1>
+
+                            <a id="controlButton" href="#" class="progress-button">Start</a>
+
+                            <div class="control-area">
+                                <a class="command increment">Increment</a>
+                                <a class="command set-to-1">Set to 1%</a>
+                                <a class="command set-to-50">Set to 50%</a>
+                                <a class="command finish">Finish</a>
+                            </div>
+                          </div>
+                          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                              
+                          </div>-->
+                      </div>
+                      
+
+                  </div>
+            </div>
+        </div>
+        
+		<!-- jQuery -->
+        <!-- Bootstrap JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+		<script src="js/classie.js"></script>
+        <script src="js/selectFx.js"></script>
+		<script src="js/scriptButton.js"></script>
+
+		<script>
+			(function() {
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+					new SelectFx(el);
+				} );
+			})();
+        </script>
+
+        <script>
+
+            $(document).ready(function(){
+                
+
+                $("#submitButton").click(function(){
+                        
+                    setTimeout( function(){ 
+                        window.location.href = "demo.html";
+                    }  , 2500 );
+                });
+                
+
+            });
+
+        </script>
+
+        
+	</body>
+</html>

@@ -21,7 +21,8 @@ div.cs-skin-elastic {
 }
 
 .cs-skin-elastic > span {
-	background-color: #fff;
+	/*background-color: #fff;*/
+	background-color:#f1efef;
 	z-index: 100;
 }
 

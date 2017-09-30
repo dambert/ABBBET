@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" >
@@ -13,43 +13,78 @@
 
         $(document).ready(function () {
 
-            $('#demo').ip_Grid({ rows: 100,  cols: 6 });
+            $('#demo').ip_Grid({ rows: 100,  cols: 9 });
 
-            $('#demo').ip_CellInput({ valueRAW:'Student Outcome', row: 0, col: 0 })
             
             //Rellenar los datos en duro
             $('#demo').ip_CellInput({ valueRAW:"(A): APLICA CONOCIMIENTOS DE MATEMÁTICAS, CIENCIAS, COMPUTACIÓN E INGENIERÍA", row: 1, col: 0 })   
             $('#demo').ip_CellInput({ valueRAW:"(B): DISEÑA Y CONDUCE EXPERIMENTOS EN BASE AL ANÁLISIS E INTERPRETACIÓN DE DATOS.", row: 2, col: 0 })   
+            
+            
+            /*
             $('#demo').ip_CellInput({ valueRAW:"(C): DISEÑA SISTEMAS, COMPONENTES O PROCESOS PARA ENCONTRAR SOLUCIONES EN LA ATENCIÓN DE NECESIDADES TENIENDO EN CUENTA RESTRICCIONES ECONÓMICAS, SOCIALES, POLÍTICAS, ÉTICAS, DE SALUD Y SEGURIDAD Y OTRAS PROPIAS DEL ENTORNO EMPRESARIAL.", row: 3, col: 0 })  
             $('#demo').ip_CellInput({ valueRAW:"(D): PARTICIPA EN EQUIPOS MULTIDISCIPLINARIOS DESARROLLANDO SUS TAREAS CON PROFESIONALES DE DIFERENTES ESPECIALIDADES O DOMINIOS DE APLICACIÓN.", row: 4, col: 0 })  
             $('#demo').ip_CellInput({ valueRAW:"(E): IDENTIFICA, FORMULA Y RESUELVE PROBLEMAS DE INGENIERÍA.", row: 5, col: 0 })  
             $('#demo').ip_CellInput({ valueRAW:"(F): PROPONE SOLUCIONES EN INGENIERÍA DE SOFTWARE CON RESPONSABILIDAD PROFESIONAL Y ÉTICA", row: 6, col: 0 })  
             $('#demo').ip_CellInput({ valueRAW:"(H): IDENTIFICA EL IMPACTO DE LAS SOLUCIONES de software en el contexto global, económico y del entorno en la sociedad", row: 7, col: 0 })  
             $('#demo').ip_CellInput({ valueRAW:"(I): RECONOCE LA NECESIDAD DE MANTENER SUS CONOCIMIENTOS ACTUALIZADOS.", row: 8, col: 0 })  
-            $('#demo').ip_CellInput({ valueRAW:" (J): ANALIZA HECHOS DEL MUNDO CONTEMPORÁNEO IDENTIFICANDO EL IMPACTO EN EL DESEMPEÑO PROFESIONAL DE INGENIERÍA.", row: 9, col: 0 })  
+            $('#demo').ip_CellInput({ valueRAW:"(J): ANALIZA HECHOS DEL MUNDO CONTEMPORÁNEO IDENTIFICANDO EL IMPACTO EN EL DESEMPEÑO PROFESIONAL DE INGENIERÍA.", row: 9, col: 0 })  */
+            
+
+            //Para outcome 1
+            $('#demo').ip_InsertRow({ row:2, appendTo: 'before', count: 3 })
+            $('#demo').ip_CellInput({ valueRAW:"c1:  Aplicación de conocimientos matemáticos", row: 1, col: 1 })  
+            $('#demo').ip_CellInput({ valueRAW:"2", row: 1, col: 2 })  
+            $('#demo').ip_CellInput({ valueRAW:"c2: Aplicación de teoría y principios de ciencias de la computación al desarrollo y mantenimiento de software", row: 2, col: 1 })  
+            $('#demo').ip_CellInput({ valueRAW:"2", row: 2, col: 2 })  
+            $('#demo').ip_CellInput({ valueRAW:"c3: Aplicación de conocimientos de ingeniería", row: 3, col: 1 })
+            $('#demo').ip_CellInput({ valueRAW:"2", row: 3, col: 2 })  
+            
+            $('#demo').ip_InsertRow({ row:6, appendTo: 'before', count: 2 })
+
+            $('#demo').ip_CellInput({ valueRAW:"c1:  Aplicación de conocimientos matemáticos", row: 5, col: 1 })  
+            $('#demo').ip_CellInput({ valueRAW:"2", row: 5, col: 2 })  
+            $('#demo').ip_CellInput({ valueRAW:"c2: Aplicación de teoría y principios de ciencias de la computación al desarrollo y mantenimiento de software", row: 6, col: 1 })  
+            $('#demo').ip_CellInput({ valueRAW:"2", row: 6, col: 2 })  
+            $('#demo').ip_CellInput({ valueRAW:"c3: Aplicación de conocimientos de ingeniería", row: 7, col: 1 })
+            $('#demo').ip_CellInput({ valueRAW:"2", row: 7, col: 2 })  
+
+
+            $('#demo').ip_InsertRow({ row:9, appendTo: 'before', count: 2 })
+            $('#demo').ip_InsertRow({ row:11, appendTo: 'before', count: 1 })
+            $('#demo').ip_InsertRow({ row:13, appendTo: 'before', count: 2 })
+            $('#demo').ip_InsertRow({ row:16, appendTo: 'before', count: 1 })
+            $('#demo').ip_InsertRow({ row:18, appendTo: 'before', count: 2 })
+            $('#demo').ip_InsertRow({ row:21, appendTo: 'before', count: 1 })
+            $('#demo').ip_InsertRow({ row:23, appendTo: 'before', count: 1 })
+
 
             //Header textos 
+            $('#demo').ip_CellInput({ valueRAW:'Student Outcome', row: 0, col: 0 })
             $('#demo').ip_CellInput({ valueRAW:'Criterios', row: 0, col: 1 })
             $('#demo').ip_CellInput({ valueRAW:'Nota Máxima', row: 0, col: 2 })
-            $('#demo').ip_CellInput({ valueRAW:'Nivel Aceptación', row: 0, col: 3 })
-            $('#demo').ip_CellInput({ valueRAW:'Puntaje Menor', row: 0, col: 4 })
-            $('#demo').ip_CellInput({ valueRAW:'Puntaje Mayor', row: 0, col: 5 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 1, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 2, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 3, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 4, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 5, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 6, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 7, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 8, col: 1 })
-            $('#demo').ip_CellInput({ valueRAW:'Agregar C(+)', row: 9, col: 1 })
+            $('#demo').ip_CellInput({ valueRAW:'Nota Alcanzada', row: 0, col: 3 })
+            $('#demo').ip_CellInput({ valueRAW:'Incipiente', row: 0, col: 4 })
+            $('#demo').ip_CellInput({ valueRAW:'En proceso', row: 0, col: 5 })
+            $('#demo').ip_CellInput({ valueRAW:'Esperado', row: 0, col: 6 })
 
-            $('#demo').ip_ResizeColumn({ columns: [-1], size: 120 })
 
-            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:#f52424; color:white;',range:[{ startRow:0, startCol:0, endRow:0, endCol:5 }] })
-            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:#5d505b; color:white;',range:[{ startRow:1, startCol:0, endRow:9, endCol:0 }] })
+            $('#demo').ip_ResizeColumn({ columns: [-1], size: 110 })
 
-            $('#demo').ip_Border({ borderSize:'1', borderPlacement:'all', range:[{ startRow:0, startCol:0, endRow:0, endCol:5 }] })
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:#f52424; color:white;',range:[{ startRow:0, startCol:0, endRow:0, endCol:6 }] })
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:#5d505b; color:white;',range:[{ startRow:1, startCol:0, endRow:22, endCol:0 }] })
+
+
+
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:gray; color:white; ',range:[{ startRow:4, startCol:0, endRow:4, endCol:6 }] })
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:gray; color:white; ',range:[{ startRow:8, startCol:0, endRow:8, endCol:6 }] })
+
+            
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:white; color:white; ',range:[{ startRow:4, startCol:0, endRow:4, endCol:0 }] })
+            $('#demo').ip_FormatCell({ style:'font-weight:bold; background-color:white; color:white; ',range:[{ startRow:8, startCol:0, endRow:8, endCol:0 }] })
+
+
+            $('#demo').ip_Border({ borderSize:'1', borderPlacement:'all', range:[{ startRow:0, startCol:0, endRow:0, endCol:6 }] })
             $('#demo').ip_Border({ borderSize:'1', borderPlacement:'all', range:[{ startRow:0, startCol:0, endRow:7, endCol:0 }] })
 
             //$('#demo').ip_FormatCell({ style:'background-color:green; color:white;',range:[{ startRow:1, startCol:1, endRow:1, endCol:1 }] })
@@ -410,281 +445,282 @@
 
             //Se activa cuando ya realizó el cambio en el texto del textbox
             //Esta función la utilizo para validar que el nombre de criterio sea ingresado primero, antes que la nota 
-            $('#demo').on('ip_CellInput', function (event, args) { 
+            
+            // $('#demo').on('ip_CellInput', function (event, args) { 
 
-                    console.log('***********on ip_CellInput**********');
-                    var row  = getRow();
-                    var column  = getColumn();
+            //         console.log('***********on ip_CellInput**********');
+            //         var row  = getRow();
+            //         var column  = getColumn();
 
-                    var valorEnCelda  = getValueInCell(row,column);
-                    //Si el valor de la celda , está vacia entonces no hay nada que hacer
-                    if(valorEnCelda=="") return;
+            //         var valorEnCelda  = getValueInCell(row,column);
+            //         //Si el valor de la celda , está vacia entonces no hay nada que hacer
+            //         if(valorEnCelda=="") return;
 
 
-                    var typeSection = getSectionType(row,column);
+            //         var typeSection = getSectionType(row,column);
 
-                    switch(typeSection){
-                        case SectionCriterio:{
+            //         switch(typeSection){
+            //             case SectionCriterio:{
 
-                            switch(column){
-                                case ColCriterio:{
+            //                 switch(column){
+            //                     case ColCriterio:{
 
-                                }break;
-                                case ColNotaMaxima:{
+            //                     }break;
+            //                     case ColNotaMaxima:{
 
-                                       var valorCeldaCriterio = getValueInCell(row,column-1);
-                                        //Validar que el nombre del criterio se haya agregado a la izquierda
-                                        if(valorCeldaCriterio=="Agregar C(+)"){
-                                            alert('Primero debe ingresar el nombre del criterio por favor');
-                                            setValueInCell(row,column,"");
-                                            selectCell(row,column-1);
-                                        }
-                                        else{
-                                            //alert('asdsad');
-                                           setValueInCellByJquery(row,column+1,"Agregar N(+)");
-                                           selectCell(row,column+1);
+            //                            var valorCeldaCriterio = getValueInCell(row,column-1);
+            //                             //Validar que el nombre del criterio se haya agregado a la izquierda
+            //                             if(valorCeldaCriterio=="Agregar C(+)"){
+            //                                 alert('Primero debe ingresar el nombre del criterio por favor');
+            //                                 setValueInCell(row,column,"");
+            //                                 selectCell(row,column-1);
+            //                             }
+            //                             else{
+            //                                 //alert('asdsad');
+            //                                setValueInCellByJquery(row,column+1,"Agregar N(+)");
+            //                                selectCell(row,column+1);
 
-                                           AddCriterioAlFinalizar(row);
+            //                                AddCriterioAlFinalizar(row);
 
-                                        }
+            //                             }
 
-                                }break;
-                            }
+            //                     }break;
+            //                 }
 
                          
 
-                        }break;
-                        case SectionNivel:{
+            //             }break;
+            //             case SectionNivel:{
 
-                            var nombreNivelAceptacion = getValueInCell(row,ColNivelAceptacion);
-                            var puntajeMenor = getValueInCell(row,ColPuntajeMenor);
-                            var puntajeMayor = getValueInCell(row,ColPuntajeMayor);
+            //                 var nombreNivelAceptacion = getValueInCell(row,ColNivelAceptacion);
+            //                 var puntajeMenor = getValueInCell(row,ColPuntajeMenor);
+            //                 var puntajeMayor = getValueInCell(row,ColPuntajeMayor);
 
-                            switch(column){
-                                case ColNivelAceptacion:{
-                                    if(nombreNivelAceptacion=="Agregar N(+)"){
-                                        alert('Debes agregar un nombre de nivel válido');
-                                        return;
-                                    }
-                                }break;
-                                case ColPuntajeMenor:{
+            //                 switch(column){
+            //                     case ColNivelAceptacion:{
+            //                         if(nombreNivelAceptacion=="Agregar N(+)"){
+            //                             alert('Debes agregar un nombre de nivel válido');
+            //                             return;
+            //                         }
+            //                     }break;
+            //                     case ColPuntajeMenor:{
 
-                                    if(nombreNivelAceptacion == "" || nombreNivelAceptacion=="Agregar N(+)"){
-                                        alert('Primero debes agregar el nombre de nivel de aceptación');
-                                        setValueInCell(row,column,"");
-                                        selectCell(row,ColNivelAceptacion);
-                                        return;
-                                    }                                    
+            //                         if(nombreNivelAceptacion == "" || nombreNivelAceptacion=="Agregar N(+)"){
+            //                             alert('Primero debes agregar el nombre de nivel de aceptación');
+            //                             setValueInCell(row,column,"");
+            //                             selectCell(row,ColNivelAceptacion);
+            //                             return;
+            //                         }                                    
 
-                                }break;
-                                case ColPuntajeMayor:{
+            //                     }break;
+            //                     case ColPuntajeMayor:{
 
-                                    if(nombreNivelAceptacion == "" || nombreNivelAceptacion=="Agregar N(+)"){
-                                        alert('Primero debes agregar el nombre de nivel de aceptación');
-                                        setValueInCell(row,column,"");
-                                        selectCell(row,ColNivelAceptacion);
-                                        return;
-                                    }      
-                                    if(puntajeMenor == "")   {
-                                        alert('Primero debes agregar el puntaje menor.');
-                                        setValueInCell(row,column,"");
-                                        selectCell(row,ColPuntajeMenor);
-                                        return;
-                                    }
-                                }break;
-                            }
+            //                         if(nombreNivelAceptacion == "" || nombreNivelAceptacion=="Agregar N(+)"){
+            //                             alert('Primero debes agregar el nombre de nivel de aceptación');
+            //                             setValueInCell(row,column,"");
+            //                             selectCell(row,ColNivelAceptacion);
+            //                             return;
+            //                         }      
+            //                         if(puntajeMenor == "")   {
+            //                             alert('Primero debes agregar el puntaje menor.');
+            //                             setValueInCell(row,column,"");
+            //                             selectCell(row,ColPuntajeMenor);
+            //                             return;
+            //                         }
+            //                     }break;
+            //                 }
 
-                            if(puntajeMayor != ""){
-                                //Si todo está bien , entonces debo agregar un nuevo nivel
+            //                 if(puntajeMayor != ""){
+            //                     //Si todo está bien , entonces debo agregar un nuevo nivel
 
-                                AddNivelAlFinalizar(row);
-                            }
+            //                     AddNivelAlFinalizar(row);
+            //                 }
 
 
-                        }break;
-                        case "Default":{
-                            log('Default error en on click input');
-                        }break;
-                    }
+            //             }break;
+            //             case "Default":{
+            //                 log('Default error en on click input');
+            //             }break;
+            //         }
 
                   
 
 
-                    //ultimoValor = getValueInCell(row,column);
+            //         //ultimoValor = getValueInCell(row,column);
 
-                    //alert('valor cambiado');
-            });
+            //         //alert('valor cambiado');
+            // });
             function selectCell(row,column){
                 $('#demo').ip_SelectCell({ row:row, col:column });
             }
 
 
             //Utilizo esta funcion para validar nomas q
-            $('#demo').focus('ip_CellInput', function (event, args) { 
-                    console.log("****************focus ip_CellInput***********************");
+            // $('#demo').focus('ip_CellInput', function (event, args) { 
+            //         console.log("****************focus ip_CellInput***********************");
 
-                    //ArregloCriterio.push(new Array(criterio,criterio));
-                    var row = getRow();
-                    var OutcomeIndex = onFocusOutcome(row);
+            //         //ArregloCriterio.push(new Array(criterio,criterio));
+            //         var row = getRow();
+            //         var OutcomeIndex = onFocusOutcome(row);
 
-                    log('OutcomeIndex: ');
-                    log(OutcomeIndex);
+            //         log('OutcomeIndex: ');
+            //         log(OutcomeIndex);
 
-                    var column = getColumn();
-                    //Si hace focus a la columna de outcomes: significa que va a agregar un nuevo criterio
-                    if(column == 0) return false;
-
-
-
-                    var row  = getRow();
-                    var column  = getColumn();
-                    console.log("Row Anterior: " + rowAnterior);
-                    console.log("Column Anterior: " + columnAnterior);
-                    if(row!=rowAnterior || column!=columnAnterior)
-                    {
-                        verificarRowAnteriorCriterio(rowAnterior,columnAnterior);
-                        verificarNivelAceptacionAnterior(rowAnterior,columnAnterior);
-                    }
-
-                    if(row==rowAnterior && column == columnAnterior)
-                    {
-                        return false;
-                    }
+            //         var column = getColumn();
+            //         //Si hace focus a la columna de outcomes: significa que va a agregar un nuevo criterio
+            //         if(column == 0) return false;
 
 
-                    columnAnterior = column;
-                    rowAnterior = row;
-                    console.log("Row: " + row);
-                    console.log("Column: " + column);
 
-                    var valorCelda = getValueInCell(row,column);
-                    ultimoOutcome = valorCelda;
+            //         var row  = getRow();
+            //         var column  = getColumn();
+            //         console.log("Row Anterior: " + rowAnterior);
+            //         console.log("Column Anterior: " + columnAnterior);
+            //         if(row!=rowAnterior || column!=columnAnterior)
+            //         {
+            //             verificarRowAnteriorCriterio(rowAnterior,columnAnterior);
+            //             verificarNivelAceptacionAnterior(rowAnterior,columnAnterior);
+            //         }
 
-                    if(valorCelda == "Agregar C(+)")
-                    {
-                        console.log('Evento para agregar criterio');
-                        deleteFormatAndText(row,column);
-                        //deleteFormatAndText(row,column);
-                        //cleanCurrentCell(row,column);
-                    }
+            //         if(row==rowAnterior && column == columnAnterior)
+            //         {
+            //             return false;
+            //         }
 
-            })
+
+            //         columnAnterior = column;
+            //         rowAnterior = row;
+            //         console.log("Row: " + row);
+            //         console.log("Column: " + column);
+
+            //         var valorCelda = getValueInCell(row,column);
+            //         ultimoOutcome = valorCelda;
+
+            //         if(valorCelda == "Agregar C(+)")
+            //         {
+            //             console.log('Evento para agregar criterio');
+            //             deleteFormatAndText(row,column);
+            //             //deleteFormatAndText(row,column);
+            //             //cleanCurrentCell(row,column);
+            //         }
+
+            // })
 
             /*Para validar que no se ingrese caracteres especiales*/
             /*Está funcion solo funciona , cuando el textbox está en edición*/
-            $('#demo').keydown('ip_CellInput', function (event, args) { 
-                    console.log("****************keydown***********************");
+            // $('#demo').keydown('ip_CellInput', function (event, args) { 
+            //         console.log("****************keydown***********************");
                     
-                    // var column = getColumn();
+            //         // var column = getColumn();
 
-                    // if(column == 0){
-
-
-                    //     setValueInCell(1,0,"Nombre xx");
-                    //     selectCell(1,1);
-                    //     return;
-                    // }
-
-                    // (+) 107
-                    // (-) 109
-
-                   // if(event.which === 107 && event.ctrlKey){
-
-                    if(event.ctrlKey){
-
-                        var row = getRow();
-                        var column = getColumn();
-                        var textCurrent = getValueInCell(row,column);
-                        if(textCurrent=="")
-                        {
-                            return false;
-                        }
+            //         // if(column == 0){
 
 
-                        var typeSection = getSectionType(row,column);
-                        console.log("Section actual: " + typeSection);
+            //         //     setValueInCell(1,0,"Nombre xx");
+            //         //     selectCell(1,1);
+            //         //     return;
+            //         // }
 
-                        switch(typeSection){
-                            case SectionCriterio:{
+            //         // (+) 107
+            //         // (-) 109
 
-                                    var indexOutcome = onFocusOutcome(row);
-                                    //Aqui debo validar todos los criterios y outcome del index
-                                    if(validCriterioWithMessages(row,column)){
+            //        // if(event.which === 107 && event.ctrlKey){
+
+            //         if(event.ctrlKey){
+
+            //             var row = getRow();
+            //             var column = getColumn();
+            //             var textCurrent = getValueInCell(row,column);
+            //             if(textCurrent=="")
+            //             {
+            //                 return false;
+            //             }
+
+
+            //             var typeSection = getSectionType(row,column);
+            //             console.log("Section actual: " + typeSection);
+
+            //             switch(typeSection){
+            //                 case SectionCriterio:{
+
+            //                         var indexOutcome = onFocusOutcome(row);
+            //                         //Aqui debo validar todos los criterios y outcome del index
+            //                         if(validCriterioWithMessages(row,column)){
                                         
-                                        var alturaNuevaPosicion = getAlturaByOutcome(indexOutcome);
-                                        var rowPosicionNuevo = alturaNuevaPosicion + 1;
+            //                             var alturaNuevaPosicion = getAlturaByOutcome(indexOutcome);
+            //                             var rowPosicionNuevo = alturaNuevaPosicion + 1;
 
-                                        $('#demo').ip_InsertRow({ row:rowPosicionNuevo, appendTo: 'before', count: 1 })
-                                        setValueInCellByJquery(rowPosicionNuevo,ColCriterio,"Agregar C(+)");
-                                        selectCell(rowPosicionNuevo,column);
-                                        NewRow = true;
-                                        NewRowCriterio = rowPosicionNuevo;
+            //                             $('#demo').ip_InsertRow({ row:rowPosicionNuevo, appendTo: 'before', count: 1 })
+            //                             setValueInCellByJquery(rowPosicionNuevo,ColCriterio,"Agregar C(+)");
+            //                             selectCell(rowPosicionNuevo,column);
+            //                             NewRow = true;
+            //                             NewRowCriterio = rowPosicionNuevo;
 
-                                        if(rowPosicionNuevo<=NewRowNivel)
-                                            NewRowNivel = NewRowNivel + 1 
+            //                             if(rowPosicionNuevo<=NewRowNivel)
+            //                                 NewRowNivel = NewRowNivel + 1 
 
-                                    }
+            //                         }
 
-                            }break;
-                            case SectionNivel:{
-                                    var criterioIndex = onFocusCriterio(row);
-                                    var outcomeIndex = onFocusOutcome(row);
+            //                 }break;
+            //                 case SectionNivel:{
+            //                         var criterioIndex = onFocusCriterio(row);
+            //                         var outcomeIndex = onFocusOutcome(row);
 
-                                    var alturaNuevoNivel = getAlturaByCriterio(outcomeIndex,criterioIndex);
-                                    log('criterioindex:' + criterioIndex);
-                                    log('alturaNuevoNivel:' + alturaNuevoNivel);
-                                    var rowPosicionNuevo =  alturaNuevoNivel+1;
-
-
-                                    //Aqui debo validar que todos los niveles del criterio y outcome son validos
-                                    if(validNivelAceptacionWithMessages(row,column)){
-                                        $('#demo').ip_InsertRow({ row:rowPosicionNuevo, appendTo: 'before', count: 1 })
-                                        setValueInCellByJquery(rowPosicionNuevo,ColNivelAceptacion,"Agregar N(+)");
-                                        selectCell(rowPosicionNuevo,ColNivelAceptacion);
-                                        NewRow = true;
-                                        NewRowNivel = rowPosicionNuevo;
-
-                                        if(NewRowCriterio <= rowPosicionNuevo)
-                                            NewRowCriterio = NewRowCriterio + 1 
+            //                         var alturaNuevoNivel = getAlturaByCriterio(outcomeIndex,criterioIndex);
+            //                         log('criterioindex:' + criterioIndex);
+            //                         log('alturaNuevoNivel:' + alturaNuevoNivel);
+            //                         var rowPosicionNuevo =  alturaNuevoNivel+1;
 
 
-                                    }
+            //                         //Aqui debo validar que todos los niveles del criterio y outcome son validos
+            //                         if(validNivelAceptacionWithMessages(row,column)){
+            //                             $('#demo').ip_InsertRow({ row:rowPosicionNuevo, appendTo: 'before', count: 1 })
+            //                             setValueInCellByJquery(rowPosicionNuevo,ColNivelAceptacion,"Agregar N(+)");
+            //                             selectCell(rowPosicionNuevo,ColNivelAceptacion);
+            //                             NewRow = true;
+            //                             NewRowNivel = rowPosicionNuevo;
 
-                            }break;
-                            case "Default":{
-                                log("Me encuentro en otra sección que no es nivel , ni criterio")
-                            }
-
-                        }
-
-
-                    }
-
-                    if(event.which == 9 ){
-                        //Usuario seleccionó TAB para pasar a la siguiente celda 
-                        var row = getRow();
-                        var column = getColumn();
-
-                        var valor  = getValueInCell(row,column);
-                        if(valor=="")return;
-
-                        var nuevaColumna = getColumn()+1;
-
-                        if(nuevaColumna==ColNivelAceptacion)
-                        {
-
-                           selectCell(getRow(),nuevaColumna);
-                           AddCriterioAlFinalizar(row);
-                        }
-                        else{
-                            selectCell(getRow(),nuevaColumna);
-                        }
+            //                             if(NewRowCriterio <= rowPosicionNuevo)
+            //                                 NewRowCriterio = NewRowCriterio + 1 
 
 
-                    }
+            //                         }
+
+            //                 }break;
+            //                 case "Default":{
+            //                     log("Me encuentro en otra sección que no es nivel , ni criterio")
+            //                 }
+
+            //             }
+
+
+            //         }
+
+            //         if(event.which == 9 ){
+            //             //Usuario seleccionó TAB para pasar a la siguiente celda 
+            //             var row = getRow();
+            //             var column = getColumn();
+
+            //             var valor  = getValueInCell(row,column);
+            //             if(valor=="")return;
+
+            //             var nuevaColumna = getColumn()+1;
+
+            //             if(nuevaColumna==ColNivelAceptacion)
+            //             {
+
+            //                selectCell(getRow(),nuevaColumna);
+            //                AddCriterioAlFinalizar(row);
+            //             }
+            //             else{
+            //                 selectCell(getRow(),nuevaColumna);
+            //             }
+
+
+            //         }
                     
 
-            })
+            // })
             
             function getSectionType(row,column){
                 log('getSectionType');
@@ -864,7 +900,7 @@
         }
 </style>
 <div class="container">
-    <h1 class="titulo_creacion"><img src="img/agregar.png" class="img-responsive" alt="icono agregar" width="40"> CONFIGURACIÓN DE RÚBRICA</h1>
+    <h1 class="titulo_creacion"><img src="img/agregar.png" class="img-responsive" alt="icono agregar" width="40"> EVALUACIÓN DE RÚBRICA</h1>
     <p></p>
     <div class="gridContainer">
         <div id="demo"></div>
